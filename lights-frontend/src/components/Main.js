@@ -138,7 +138,7 @@ export default function Main(props) {
                             <Button type="submit" variant="contained" color="primary" fullWidth>Fill All</Button>
                         </Container>
                         <Container style={{width: "60%"}}>
-                            <ColorPicker defaultValue="red" hideTextfield></ColorPicker>
+                            <ColorPicker onChange={handleColorOneChange} value={colorOne} name="color" hideTextfield></ColorPicker>
                         </Container>
                     </form>
                 </Grid>

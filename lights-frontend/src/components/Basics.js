@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { Button, Container, TextField } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
 import { ColorPicker } from 'material-ui-color';
 
 
 
-export default function Main(props) {
+export default function Basics(props) {
 
     const BASE_URL = "http://127.0.0.1:5000"
 

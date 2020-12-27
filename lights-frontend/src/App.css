@@ -16,6 +16,27 @@
   margin-right: 5%;
 }
 
+.patterns {
+  align-items: center;
+  margin-top: 5%;
+}
+
+.patternButton {
+  width: 10vw;
+  height: 10vw;
+}
+
+.kSxvBW {
+  margin: auto;
+}
+
+.kSxvBW .muicc-colorpicker-button {
+  width: 4vw;
+  height: 4vw;
+  min-width: 24px;
+  min-height: 24px;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

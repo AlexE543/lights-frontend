@@ -3,7 +3,8 @@ import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { Typography } from '@material-ui/core';
-import Main from './components/Main.js';
+import Basics from './components/Basics.js';
+import Patterns from './components/Patterns.js';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
           <Typography className='title'>Light Tool</Typography>
         </Toolbar>
       </AppBar>
-      <Main></Main>
+      <Basics></Basics>
+      <Patterns></Patterns>
     </div>
   );
 }

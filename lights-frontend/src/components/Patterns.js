@@ -16,7 +16,7 @@ export default function Patterns(props) {
 
     function handleStop(e) {
         e.preventDefault()
-        fetch(BASE_URL + '/patterns/clear', {
+        fetch(BASE_URL + '/patterns/stop_playing', {
             method: 'GET',
         })
     }

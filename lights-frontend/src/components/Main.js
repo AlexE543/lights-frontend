@@ -47,11 +47,11 @@ export default function Main(props) {
 
     function setPixelColor(e) {
         e.preventDefault()
-        console.log("Function Called");
+        console.log(colorOne);
         fetch('/basics/set_pixel', {
             method: 'GET',
             body: JSON.stringify({'color': colorOne.rgb, 'index': pixel}),
-        }).then(alert("Complete"));
+        })
     }
 
     function fillRange(e) {
@@ -92,7 +92,7 @@ export default function Main(props) {
                 <Grid item xs={6}>
                     <form onSubmit={setPixelColor} style={{flexDirection: 'row', display: 'flex'}}>
                         <Container style={{width: "40%"}}>
-                            <Button type="submit" variant="contained" color="primary" fullWidth>Fill Section</Button>
+                            <Button type="submit" variant="contained" color="primary" fullWidth>Set Pixel</Button>
                         </Container>
                         <Container style={{width: "20%"}}>
                             <ColorPicker onChange={handleColorOneChange} value={colorOne} name="color" hideTextfield></ColorPicker>

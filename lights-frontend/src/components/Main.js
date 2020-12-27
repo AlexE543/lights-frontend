@@ -8,7 +8,8 @@ import Input from '@material-ui/core/Input';
 import { ColorPicker } from 'material-ui-color';
 
 
-function clear() {
+function clear(e) {
+    e.preventDefault()
     console.log("Function Called!");
     fetch('/basics/clear', {
         method: 'GET',
@@ -22,7 +23,7 @@ export default function Main(props) {
                 <Grid item xs={6}>
                     <form style={{flexDirection: 'row', display: 'flex'}} onSubmit={clear}>
                         <Container style={{width: "40%"}}>
-                            <Button variant="contained" style={{background: 'red', color: 'white'}} fullWidth>Clear</Button>
+                            <Button type="submit" variant="contained" style={{background: 'red', color: 'white'}} fullWidth>Clear</Button>
                         </Container>
                         <Container style={{width: "60%"}}></Container>
                     </form>

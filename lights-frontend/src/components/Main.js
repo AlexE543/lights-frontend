@@ -47,27 +47,42 @@ export default function Main(props) {
     }
 
     function setPixelColor(e) {
-        e.preventDefault()
-        fetch(BASE_URL + '/basics/set_pixel', {
-            method: 'POST',
-            body: JSON.stringify({'color': colorOne.rgb, 'index': pixel}),
-        })
+        if (colorOne == null) {
+            alert("You must enter a color");
+        }
+        else {
+            e.preventDefault()
+            fetch(BASE_URL + '/basics/set_pixel', {
+                method: 'POST',
+                body: JSON.stringify({'color': colorOne.rgb, 'index': pixel}),
+            })
+        }
     }
 
     function fillRange(e) {
-        e.preventDefault()
-        fetch(BASE_URL + '/basics/fill_range', {
-            method: 'POST',
-            body: JSON.stringify({'color': colorOne.rgb, 'start': startIndex, 'end': endIndex}),
-        })
+        if (colorOne == null) {
+            alert("You must enter a color");
+        }
+        else {
+            e.preventDefault()
+            fetch(BASE_URL + '/basics/fill_range', {
+                method: 'POST',
+                body: JSON.stringify({'color': colorOne.rgb, 'start': startIndex, 'end': endIndex}),
+            })
+        }
     }
 
     function fill(e) {
-        e.preventDefault()
-        fetch(BASE_URL + '/basics/fill', {
-            method: 'POST',
-            body: JSON.stringify({'color': colorOne.rgb}),
-        })
+        if (colorOne == null) {
+            alert("You must enter a color");
+        }
+        else {
+            e.preventDefault()
+            fetch(BASE_URL + '/basics/fill', {
+                method: 'POST',
+                body: JSON.stringify({'color': colorOne.rgb}),
+            })
+        }
     }
 
 

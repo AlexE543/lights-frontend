@@ -9,6 +9,7 @@ import { ColorPicker } from 'material-ui-color';
 
 
 function clear() {
+    console.log("Function Called!");
     fetch('/basics/clear', {
         method: 'GET',
     }).then(alert("Complete"))

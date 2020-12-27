@@ -120,10 +120,10 @@ export default function Main(props) {
                             <ColorPicker onChange={handleColorOneChange} value={colorOne} name="color" hideTextfield></ColorPicker>
                         </Container>
                         <Container style={{width: "20%"}}>
-                            <TextField onChange={handleStartIndexChange} value={pixel} type="number"></TextField>
+                            <TextField onChange={handleStartIndexChange} value={startIndex} type="number"></TextField>
                         </Container>
                         <Container style={{width: "20%"}}>
-                            <TextField onChange={handleEndIndexChange} value={pixel} type="number"></TextField>
+                            <TextField onChange={handleEndIndexChange} value={endIndex} type="number"></TextField>
                         </Container>
                     </form>
                 </Grid>

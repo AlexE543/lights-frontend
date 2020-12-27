@@ -49,7 +49,7 @@ export default function Main(props) {
         e.preventDefault()
         console.log(colorOne);
         fetch('/basics/set_pixel', {
-            method: 'GET',
+            method: 'POST',
             body: JSON.stringify({'color': colorOne.rgb, 'index': pixel}),
         })
     }
@@ -58,7 +58,7 @@ export default function Main(props) {
         e.preventDefault()
         console.log("Function Called");
         fetch('/basics/fill_range', {
-            method: 'GET',
+            method: 'POST',
             body: JSON.stringify({'color': colorOne.rgb, 'start': startIndex, 'end': endIndex}),
         }).then(alert("Complete"));
     }
@@ -67,7 +67,7 @@ export default function Main(props) {
         e.preventDefault()
         console.log("Function Called");
         fetch('/basics/fill', {
-            method: 'GET',
+            method: 'POST',
             body: JSON.stringify({'color': colorOne.rgb}),
         }).then(alert("Complete"));
     }

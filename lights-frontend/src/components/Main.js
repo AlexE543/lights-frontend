@@ -11,6 +11,8 @@ import { ColorPicker } from 'material-ui-color';
 
 export default function Main(props) {
 
+    const BASE_URL = "http://127.0.0.1:5000"
+
     const [pixel, setPixel] = useState(0);
     const [colorOne, setColorOne] = useState(null);
     const [colorTwo, setColorTwo] = useState([0, 0, 0]);
@@ -40,7 +42,7 @@ export default function Main(props) {
     function clear(e) {
         e.preventDefault()
         console.log("Function Called!");
-        fetch('/basics/clear', {
+        fetch(BASE_URL + '/basics/clear', {
             method: 'GET',
         }).then(alert("Complete"))
     }
@@ -48,7 +50,7 @@ export default function Main(props) {
     function setPixelColor(e) {
         e.preventDefault()
         console.log(colorOne);
-        fetch('/basics/set_pixel', {
+        fetch(BASE_URL + '/basics/set_pixel', {
             method: 'POST',
             body: JSON.stringify({'color': colorOne.rgb, 'index': pixel}),
         })
@@ -57,7 +59,7 @@ export default function Main(props) {
     function fillRange(e) {
         e.preventDefault()
         console.log("Function Called");
-        fetch('/basics/fill_range', {
+        fetch(BASE_URL + '/basics/fill_range', {
             method: 'POST',
             body: JSON.stringify({'color': colorOne.rgb, 'start': startIndex, 'end': endIndex}),
         }).then(alert("Complete"));
@@ -66,7 +68,7 @@ export default function Main(props) {
     function fill(e) {
         e.preventDefault()
         console.log("Function Called");
-        fetch('/basics/fill', {
+        fetch(BASE_URL + '/basics/fill', {
             method: 'POST',
             body: JSON.stringify({'color': colorOne.rgb}),
         }).then(alert("Complete"));

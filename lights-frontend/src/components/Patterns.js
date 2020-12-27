@@ -94,7 +94,7 @@ export default function Patterns(props) {
         else {
             fetch(BASE_URL + '/patterns/shoot_left', {
                 method: 'POST',
-                body: JSON.stringify({'color_one': colorOne.rgb}),
+                body: JSON.stringify({'color': colorOne.rgb}),
             })
         }
     }
@@ -107,7 +107,7 @@ export default function Patterns(props) {
         else {
             fetch(BASE_URL + '/patterns/slide_left', {
                 method: 'POST',
-                body: JSON.stringify({'color_one': colorOne.rgb}),
+                body: JSON.stringify({'color': colorOne.rgb}),
             })
         }
     }
@@ -120,7 +120,7 @@ export default function Patterns(props) {
         else {
             fetch(BASE_URL + '/patterns/slide_middle', {
                 method: 'POST',
-                body: JSON.stringify({'color_one': colorOne.rgb}),
+                body: JSON.stringify({'color': colorOne.rgb}),
             })
         }
     }
@@ -133,7 +133,7 @@ export default function Patterns(props) {
         else {
             fetch(BASE_URL + '/patterns/slide_right', {
                 method: 'POST',
-                body: JSON.stringify({'color_one': colorOne.rgb}),
+                body: JSON.stringify({'color': colorOne.rgb}),
             })
         }
     }
@@ -146,7 +146,7 @@ export default function Patterns(props) {
         else {
             fetch(BASE_URL + '/patterns/shoot_right', {
                 method: 'POST',
-                body: JSON.stringify({'color_one': colorOne.rgb}),
+                body: JSON.stringify({'color': colorOne.rgb}),
             })
         }
     }
@@ -208,7 +208,7 @@ export default function Patterns(props) {
                     <Button className="patternButton" onClick={slideRight} variant="contained" color="primary" fullWidth>Slide Right</Button>
                 </Grid>
                 <Grid item xs={2}>
-                    <Button className="patternButton" onClick={slideRight} variant="contained" color="primary" fullWidth>Shoot Right</Button>
+                    <Button className="patternButton" onClick={shootRight} variant="contained" color="primary" fullWidth>Shoot Right</Button>
                 </Grid>
                 <Grid item xs={1}></Grid>
             </Grid>

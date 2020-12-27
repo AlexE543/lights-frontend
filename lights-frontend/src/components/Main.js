@@ -47,11 +47,11 @@ export default function Main(props) {
     }
 
     function setPixelColor(e) {
+        e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");
         }
         else {
-            e.preventDefault()
             fetch(BASE_URL + '/basics/set_pixel', {
                 method: 'POST',
                 body: JSON.stringify({'color': colorOne.rgb, 'index': pixel}),
@@ -60,11 +60,11 @@ export default function Main(props) {
     }
 
     function fillRange(e) {
+        e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");
         }
         else {
-            e.preventDefault()
             fetch(BASE_URL + '/basics/fill_range', {
                 method: 'POST',
                 body: JSON.stringify({'color': colorOne.rgb, 'start': startIndex, 'end': endIndex}),
@@ -73,11 +73,11 @@ export default function Main(props) {
     }
 
     function fill(e) {
+        e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");
         }
         else {
-            e.preventDefault()
             fetch(BASE_URL + '/basics/fill', {
                 method: 'POST',
                 body: JSON.stringify({'color': colorOne.rgb}),

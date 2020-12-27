@@ -8,8 +8,7 @@ import Input from '@material-ui/core/Input';
 import { ColorPicker } from 'material-ui-color';
 
 
-const clear = e => {
-    e.preventDefault()
+function clear() {
     fetch('/basics/clear', {
         method: 'GET',
     }).then(alert("Complete"))

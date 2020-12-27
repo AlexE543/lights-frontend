@@ -87,6 +87,7 @@ export default function Patterns(props) {
     }
 
     function shootLeft(e) {
+        console.log(colorOne.rgb);
         e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");
@@ -100,6 +101,7 @@ export default function Patterns(props) {
     }
 
     function slideLeft(e) {
+        console.log(colorOne.rgb);
         e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");
@@ -113,6 +115,7 @@ export default function Patterns(props) {
     }
 
     function slideMiddle(e) {
+        console.log(colorOne.rgb);
         e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");
@@ -126,6 +129,7 @@ export default function Patterns(props) {
     }
 
     function slideRight(e) {
+        console.log(colorOne.rgb);
         e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");

@@ -40,7 +40,7 @@ export default function Patterns(props) {
             alert("You must enter three colors");
         }
         else {
-            fetch(BASE_URL + '/patterns/set_tri_alternate', {
+            fetch(BASE_URL + '/patterns/set_tri_alternating', {
                 method: 'POST',
                 body: JSON.stringify({'color_one': colorOne.rgb, 'color_two': colorTwo.rgb, 'color_three': colorThree.rgb}),
             })
@@ -53,7 +53,7 @@ export default function Patterns(props) {
             alert("You must enter two colors");
         }
         else {
-            fetch(BASE_URL + '/patterns/set_alternate', {
+            fetch(BASE_URL + '/patterns/set_alternating', {
                 method: 'POST',
                 body: JSON.stringify({'color_one': colorOne.rgb, 'color_two': colorTwo.rgb}),
             })

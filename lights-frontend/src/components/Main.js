@@ -41,15 +41,13 @@ export default function Main(props) {
 
     function clear(e) {
         e.preventDefault()
-        console.log("Function Called!");
         fetch(BASE_URL + '/basics/clear', {
             method: 'GET',
-        }).then(alert("Complete"))
+        })
     }
 
     function setPixelColor(e) {
         e.preventDefault()
-        console.log(colorOne);
         fetch(BASE_URL + '/basics/set_pixel', {
             method: 'POST',
             body: JSON.stringify({'color': colorOne.rgb, 'index': pixel}),
@@ -58,20 +56,18 @@ export default function Main(props) {
 
     function fillRange(e) {
         e.preventDefault()
-        console.log("Function Called");
         fetch(BASE_URL + '/basics/fill_range', {
             method: 'POST',
             body: JSON.stringify({'color': colorOne.rgb, 'start': startIndex, 'end': endIndex}),
-        }).then(alert("Complete"));
+        })
     }
 
     function fill(e) {
         e.preventDefault()
-        console.log("Function Called");
         fetch(BASE_URL + '/basics/fill', {
             method: 'POST',
             body: JSON.stringify({'color': colorOne.rgb}),
-        }).then(alert("Complete"));
+        })
     }
 
 
@@ -136,20 +132,6 @@ export default function Main(props) {
                     <form onSubmit={fill} style={{flexDirection: 'row', display: 'flex'}}>
                         <Container style={{width: "40%"}}>
                             <Button type="submit" variant="contained" color="primary" fullWidth>Fill All</Button>
-                        </Container>
-                        <Container style={{width: "60%"}}>
-                            <ColorPicker onChange={handleColorOneChange} value={colorOne} name="color" hideTextfield></ColorPicker>
-                        </Container>
-                    </form>
-                </Grid>
-                <Grid item xs={6}>
-                    <Typography align="left" variant="h5">Fills the whole led strip to a specified color.</Typography>
-                </Grid>
-
-                <Grid item xs={6}>
-                    <form style={{flexDirection: 'row', display: 'flex'}}>
-                        <Container style={{width: "40%"}}>
-                            <Button variant="contained" color="primary" fullWidth>Fill All</Button>
                         </Container>
                         <Container style={{width: "60%"}}>
                             <ColorPicker onChange={handleColorOneChange} value={colorOne} name="color" hideTextfield></ColorPicker>

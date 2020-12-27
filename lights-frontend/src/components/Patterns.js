@@ -139,6 +139,7 @@ export default function Patterns(props) {
     }
 
     function shootRight(e) {
+        console.log(colorOne.rgb);
         e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");

@@ -9,6 +9,7 @@ import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import { Grid } from '@material-ui/core';
+import PauseIcon from '@material-ui/icons/Pause';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,6 +54,11 @@ export default function MediaControlCard() {
         })
         fetch(BASE_URL + '/spotify/current_song', {
             method: 'GET',
+        }).then(res => res.json())
+        .then(response =>{
+            setCurrentState(response.is_playing);
+            setCurrentSong(response.item.name);
+            setCurrentSongImg(response.item.album.images[0].url);
         })
     }
 
@@ -63,6 +69,11 @@ export default function MediaControlCard() {
         })
         fetch(BASE_URL + '/spotify/current_song', {
             method: 'GET',
+        }).then(res => res.json())
+        .then(response =>{
+            setCurrentState(response.is_playing);
+            setCurrentSong(response.item.name);
+            setCurrentSongImg(response.item.album.images[0].url);
         })
     }
 
@@ -73,6 +84,11 @@ export default function MediaControlCard() {
         })
         fetch(BASE_URL + '/spotify/current_song', {
             method: 'GET',
+        }).then(res => res.json())
+        .then(response =>{
+            setCurrentState(response.is_playing);
+            setCurrentSong(response.item.name);
+            setCurrentSongImg(response.item.album.images[0].url);
         })
     }
 
@@ -81,10 +97,9 @@ export default function MediaControlCard() {
             method: 'GET'
         }).then(res => res.json())
         .then(response =>{
-            console.log(response);
-            console.log(response.is_playing);
-            console.log(response.item.name);
-            console.log(response.item.album.images[0]);
+            setCurrentState(response.is_playing);
+            setCurrentSong(response.item.name);
+            setCurrentSongImg(response.item.album.images[0].url);
         })
     })
 
@@ -108,7 +123,7 @@ export default function MediaControlCard() {
                                 <SkipPreviousIcon />
                             </IconButton>
                             <IconButton onClick={play} aria-label="play/pause">
-                                <PlayArrowIcon className={classes.playIcon} />
+                                {currentState === true ? <PauseIcon /> : <PlayArrowIcon className={classes.playIcon} />}
                             </IconButton>
                             <IconButton onClick={next} aria-label="next">
                                 <SkipNextIcon />

@@ -55,6 +55,7 @@ export default function MediaControlCard() {
             method: 'GET',
         }).then(res => res.json())
         .then(response =>{
+            console.log(repsonse);
             setCurrentState(Boolean(response.is_playing));
             setCurrentArtist(response.item.artists[0].name);
             setCurrentSong(response.item.name);

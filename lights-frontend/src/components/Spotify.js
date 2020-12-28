@@ -58,7 +58,7 @@ export default function MediaControlCard() {
         }).then(res => res.json())
         .then(response =>{
             setCurrentState(Boolean(response.is_playing));
-            setCurrentArtist(response.item.artitsts[0].name);
+            setCurrentArtist(response.item.artists[0].name);
             setCurrentSong(response.item.name);
             setCurrentSongImg(response.item.album.images[0].url);
         })
@@ -74,7 +74,7 @@ export default function MediaControlCard() {
         }).then(res => res.json())
         .then(response =>{
             setCurrentState(Boolean(response.is_playing));
-            setCurrentArtist(response.item.artitsts[0].name);
+            setCurrentArtist(response.item.artists[0].name);
             setCurrentSong(response.item.name);
             setCurrentSongImg(response.item.album.images[0].url);
         })
@@ -90,7 +90,7 @@ export default function MediaControlCard() {
         }).then(res => res.json())
         .then(response =>{
             setCurrentState(Boolean(response.is_playing));
-            setCurrentArtist(response.item.artitsts[0].name);
+            setCurrentArtist(response.item.artists[0].name);
             setCurrentSong(response.item.name);
             setCurrentSongImg(response.item.album.images[0].url);
         })
@@ -103,7 +103,7 @@ export default function MediaControlCard() {
         .then(response =>{
             console.log(response);
             setCurrentState(Boolean(response.is_playing));
-            setCurrentArtist(response.item.artitsts[0].name);
+            setCurrentArtist(response.item.artists[0].name);
             setCurrentSong(response.item.name);
             setCurrentSongImg(response.item.album.images[0].url);
         })

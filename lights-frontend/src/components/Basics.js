@@ -91,6 +91,7 @@ export default function Basics(props) {
                     <InputLabel>Pick a color</InputLabel>
                     <ColorPicker onChange={handleColorOneChange} value={colorOne} name="color" hideTextfield></ColorPicker>
                 </Grid>
+                <Grid item xs={2}></Grid>
                 <Container>
                     <InputLabel>Start/Pixel Index</InputLabel>
                     <TextField onChange={handleStartIndexChange} value={startIndex} type="number"></TextField>
@@ -99,8 +100,6 @@ export default function Basics(props) {
                     <InputLabel>End Index</InputLabel>
                     <TextField onChange={handleEndIndexChange} value={endIndex} type="number"></TextField>
                 </Container>
-                <Grid item xs={2}></Grid>
-
 
                 <Grid item xs={12}>
                     <Button onClick={clear} variant="contained" style={{backgroundColor: 'red', marginLeft: '20%', marginRight: '20%', width: '50%'}}>Clear</Button>

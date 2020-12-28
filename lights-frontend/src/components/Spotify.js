@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -52,12 +52,6 @@ export default function MediaControlCard() {
         })
         fetch(BASE_URL + '/spotify/current_song', {
             method: 'GET',
-        }).then((res) => {
-            console.log(res);
-            console.log(res.get('item'));
-            console.log(res.get('item')).get('name');
-            setCurrentSong(res.get('item').get('name'));
-            setCurrentSongImg(res.get('item').get('album').get('images')[0]);
         })
     }
 
@@ -68,12 +62,6 @@ export default function MediaControlCard() {
         })
         fetch(BASE_URL + '/spotify/current_song', {
             method: 'GET',
-        }).then((res) => {
-            console.log(res);
-            console.log(res.get('item'));
-            console.log(res.get('item')).get('name');
-            setCurrentSong(res.get('item').get('name'));
-            setCurrentSongImg(res.get('item').get('album').get('images')[0]);
         })
     }
 
@@ -84,14 +72,17 @@ export default function MediaControlCard() {
         })
         fetch(BASE_URL + '/spotify/current_song', {
             method: 'GET',
-        }).then((res) => {
-            console.log(res);
-            console.log(res.get('item'));
-            console.log(res.get('item')).get('name');
-            setCurrentSong(res.get('item').get('name'));
-            setCurrentSongImg(res.get('item').get('album').get('images')[0]);
         })
     }
+
+    useEffect(() => {
+        fetch(BASE_URL + '/spotify/current_song', {
+            method: 'GET'
+        }).then(res => res.json())
+        .then(response =>{
+            console.log(response);
+        })
+    })
 
     return (
         <div>

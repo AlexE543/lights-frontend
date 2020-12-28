@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
-import { Grid } from '@material-ui/core';
+import { Button, CardActionArea, Grid } from '@material-ui/core';
 import PauseIcon from '@material-ui/icons/Pause';
 
 const useStyles = makeStyles((theme) => ({
@@ -47,6 +47,7 @@ export default function MediaControlCard() {
     const [currentArtist, setCurrentArtist] = useState(null);
     const [currentSongImg, setCurrentSongImg] = useState(null);
     const [currentState, setCurrentState] = useState(null);
+    const [currentTrackId, setCurrentTrackId] = useState(null);
 
 
     function getCurrentSong() {
@@ -57,6 +58,7 @@ export default function MediaControlCard() {
             setCurrentState(Boolean(response.is_playing));
             setCurrentArtist(response.item.artists[0].name);
             setCurrentSong(response.item.name);
+            setCurrentTrackId(response.item.id);
             setCurrentSongImg(response.item.album.images[0].url);
         })
     }
@@ -80,6 +82,14 @@ export default function MediaControlCard() {
         fetch(BASE_URL + '/spotify/pause_play', {
             method: 'GET',
         });
+    }
+
+    function pulseToBeat(e) {
+        e.preventDefault();
+        fetch(BASE_URL + '/spotify/pulse_to_beat', {
+            method: 'POST',
+            body: JSON.stringify({'id': currentTrackId}),
+        })
     }
 
     useEffect(() => {
@@ -122,6 +132,9 @@ export default function MediaControlCard() {
                             image={currentSongImg}
                             title="Album Cover"
                         />
+                        <CardActionArea>
+                            <Button onClick={pulseToBeat}>Pulse</Button>
+                        </CardActionArea>
                     </Card>
                 </Grid>
                 <Grid item xs={2}></Grid>

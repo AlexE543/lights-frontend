@@ -58,6 +58,7 @@ export default function MediaControlCard() {
         }).then(res => res.json())
         .then(response =>{
             setCurrentState(Boolean(response.is_playing));
+            setCurrentArtist(response.item.artitsts[0].name);
             setCurrentSong(response.item.name);
             setCurrentSongImg(response.item.album.images[0].url);
         })
@@ -73,6 +74,7 @@ export default function MediaControlCard() {
         }).then(res => res.json())
         .then(response =>{
             setCurrentState(Boolean(response.is_playing));
+            setCurrentArtist(response.item.artitsts[0].name);
             setCurrentSong(response.item.name);
             setCurrentSongImg(response.item.album.images[0].url);
         })
@@ -88,6 +90,7 @@ export default function MediaControlCard() {
         }).then(res => res.json())
         .then(response =>{
             setCurrentState(Boolean(response.is_playing));
+            setCurrentArtist(response.item.artitsts[0].name);
             setCurrentSong(response.item.name);
             setCurrentSongImg(response.item.album.images[0].url);
         })
@@ -100,6 +103,7 @@ export default function MediaControlCard() {
         .then(response =>{
             console.log(response);
             setCurrentState(Boolean(response.is_playing));
+            setCurrentArtist(response.item.artitsts[0].name);
             setCurrentSong(response.item.name);
             setCurrentSongImg(response.item.album.images[0].url);
         })
@@ -125,7 +129,7 @@ export default function MediaControlCard() {
                                 <SkipPreviousIcon />
                             </IconButton>
                             <IconButton onClick={play} aria-label="play/pause">
-                                {currentState === true ? <PlayArrowIcon className={classes.playIcon} /> : <PauseIcon className={classes.playIcon}/>}
+                                {currentState === true ? <PauseIcon className={classes.playIcon}/> : <PlayArrowIcon className={classes.playIcon} />}
                             </IconButton>
                             <IconButton onClick={next} aria-label="next">
                                 <SkipNextIcon />

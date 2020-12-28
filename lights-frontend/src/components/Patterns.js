@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
-import { Button, Container, TextField } from '@material-ui/core';
+import { Button, Container, InputLabel, TextField } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import { ColorPicker } from 'material-ui-color';
 
@@ -87,7 +87,6 @@ export default function Patterns(props) {
     }
 
     function shootLeft(e) {
-        console.log(colorOne.rgb);
         e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");
@@ -101,7 +100,6 @@ export default function Patterns(props) {
     }
 
     function slideLeft(e) {
-        console.log(colorOne.rgb);
         e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");
@@ -115,7 +113,6 @@ export default function Patterns(props) {
     }
 
     function slideMiddle(e) {
-        console.log(colorOne.rgb);
         e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");
@@ -129,7 +126,6 @@ export default function Patterns(props) {
     }
 
     function slideRight(e) {
-        console.log(colorOne.rgb);
         e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");
@@ -143,7 +139,6 @@ export default function Patterns(props) {
     }
 
     function shootRight(e) {
-        console.log(colorOne.rgb);
         e.preventDefault()
         if (colorOne == null) {
             alert("You must enter a color");
@@ -162,12 +157,15 @@ export default function Patterns(props) {
             <Grid container className="patterns" spacing={3}>
                 <Grid item xs={3}></Grid>
                 <Grid item xs={2}>
+                    <InputLabel>Color One</InputLabel>
                     <ColorPicker onChange={color => setColorOne(color)} value={colorOne} name="colorOne" hideTextfield></ColorPicker>
                 </Grid>
                 <Grid item xs={2}>
+                    <InputLabel>Color Two</InputLabel>
                     <ColorPicker onChange={color => setColorTwo(color)} value={colorTwo} name="colorTwo" hideTextfield></ColorPicker>
                 </Grid>
                 <Grid item xs={2}>
+                    <InputLabel>Color Three</InputLabel>
                     <ColorPicker onChange={color => setColorThree(color)} value={colorThree} name="colorThree" hideTextfield></ColorPicker>
                 </Grid>
                 <Grid item xs={3}></Grid>

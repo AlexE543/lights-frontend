@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
-import { Button, Container, TextField } from '@material-ui/core';
+import { Button, Container, InputLabel, TextField } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import { ColorPicker } from 'material-ui-color';
 
@@ -51,7 +51,7 @@ export default function Basics(props) {
         else {
             fetch(BASE_URL + '/basics/set_pixel', {
                 method: 'POST',
-                body: JSON.stringify({'color': colorOne.rgb, 'index': pixel}),
+                body: JSON.stringify({'color': colorOne.rgb, 'index': startIndex}),
             })
         }
     }
@@ -85,73 +85,43 @@ export default function Basics(props) {
 
     return (
         <div className="main">
-            <Grid container spacing={4}>
-                <Grid item xs={6}>
-                    <form style={{flexDirection: 'row', display: 'flex'}} onSubmit={clear}>
-                        <Container style={{width: "40%"}}>
-                            <Button type="submit" variant="contained" style={{background: 'red', color: 'white'}} fullWidth>Clear</Button>
-                        </Container>
-                        <Container style={{width: "60%"}}></Container>
-                    </form>
+            <Grid container spacing={3} className="patterns">
+                <Grid item xs={2}></Grid>
+                <Grid item xs={8}>
+                    <InputLabel>Pick a color</InputLabel>
+                    <ColorPicker onChange={handleColorOneChange} value={colorOne} name="color" hideTextfield></ColorPicker>
                 </Grid>
-                <Grid item xs={6}>
-                    <Typography align="left" variant="h5">Clears the current leds. Setting them all to off.</Typography>
+                <Container>
+                    <InputLabel>Start/Pixel Index</InputLabel>
+                    <TextField onChange={handleStartIndexChange} value={startIndex} type="number"></TextField>
+                </Container>
+                <Container style={{marginTop: "2%"}}>
+                    <InputLabel>End Index</InputLabel>
+                    <TextField onChange={handleEndIndexChange} value={endIndex} type="number"></TextField>
+                </Container>
+                <Grid item xs={2}></Grid>
+
+
+                <Grid item xs={12}>
+                    <Button onClick={clear} variant="contained" style={{backgroundColor: 'red', marginLeft: '20%', marginRight: '20%', width: '50%'}}>Clear</Button>
                 </Grid>
 
 
-                <Grid item xs={6}>
-                    <form onSubmit={setPixelColor} style={{flexDirection: 'row', display: 'flex'}}>
-                        <Container style={{width: "40%"}}>
-                            <Button type="submit" variant="contained" color="primary" fullWidth>Set Pixel</Button>
-                        </Container>
-                        <Container style={{width: "20%"}}>
-                            <ColorPicker onChange={handleColorOneChange} value={colorOne} name="color" hideTextfield></ColorPicker>
-                        </Container>
-                        <Container style={{width: "20%"}}>
-                            <TextField onChange={handlePixelIndexChange} value={pixel} type="number"></TextField>
-                        </Container>
-                        <Container style={{width: "20%"}}>
-                        </Container>
-                    </form>
-                </Grid>
-                <Grid item xs={6}>
-                    <Typography align="left" variant="h5">Sets the color of a given led to a specified color.</Typography>
-                </Grid>
 
-
-                <Grid item xs={6}>
-                    <form onSubmit={fillRange} style={{flexDirection: 'row', display: 'flex'}}>
-                        <Container style={{width: "40%"}}>
-                            <Button type="sumbit" variant="contained" color="primary" fullWidth>Fill Section</Button>
-                        </Container>
-                        <Container style={{width: "20%"}}>
-                            <ColorPicker onChange={handleColorOneChange} value={colorOne} name="color" hideTextfield></ColorPicker>
-                        </Container>
-                        <Container style={{width: "20%"}}>
-                            <TextField onChange={handleStartIndexChange} value={startIndex} type="number"></TextField>
-                        </Container>
-                        <Container style={{width: "20%"}}>
-                            <TextField onChange={handleEndIndexChange} value={endIndex} type="number"></TextField>
-                        </Container>
-                    </form>
+                <Grid item xs={4}>
+                    <Container style={{width: "40%"}}>
+                        <Button className="patternButton" onClick={setPixelColor} variant="contained" color="primary">Set Pixel</Button>
+                    </Container>
                 </Grid>
-                <Grid item xs={6}>
-                    <Typography align="left" variant="h5">Fills specified range of leds to the specified color.</Typography>
+                <Grid item xs={4}>
+                    <Container style={{width: "40%"}}>
+                        <Button className="patternButton" onClick={fillRange} variant="contained" color="primary">Fill Section</Button>
+                    </Container>
                 </Grid>
-
-
-                <Grid item xs={6}>
-                    <form onSubmit={fill} style={{flexDirection: 'row', display: 'flex'}}>
-                        <Container style={{width: "40%"}}>
-                            <Button type="submit" variant="contained" color="primary" fullWidth>Fill All</Button>
-                        </Container>
-                        <Container style={{width: "60%"}}>
-                            <ColorPicker onChange={handleColorOneChange} value={colorOne} name="color" hideTextfield></ColorPicker>
-                        </Container>
-                    </form>
-                </Grid>
-                <Grid item xs={6}>
-                    <Typography align="left" variant="h5">Fills the whole led strip to a specified color.</Typography>
+                <Grid item xs={4}>
+                    <Container>
+                        <Button className="patternButton" onClick={fill} variant="contained" color="primary" >Fil All</Button>
+                    </Container>
                 </Grid>
             </Grid>
         </div>

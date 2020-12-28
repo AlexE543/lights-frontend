@@ -9,16 +9,16 @@
 
 .title {
   flex-grow: 1;
+  align-content: center;
 }
 
 .main {
-  margin-top: 5%;
-  margin-right: 5%;
+  margin-top: 1%;
 }
 
 .patterns {
   align-items: center;
-  margin-top: 5%;
+  margin-top: 2%;
 }
 
 .patternButton {

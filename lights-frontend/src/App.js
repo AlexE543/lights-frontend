@@ -11,7 +11,6 @@ function App() {
     <div className="App">
       <AppBar position="static" color='primary'>
         <Toolbar>
-          <Button>Home</Button>
           <Typography className='title'>Light Tool</Typography>
         </Toolbar>
       </AppBar>

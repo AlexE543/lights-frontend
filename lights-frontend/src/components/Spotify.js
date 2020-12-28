@@ -47,7 +47,7 @@ export default function MediaControlCard() {
     const [currentArtist, setCurrentArtist] = useState(null);
     const [currentSongImg, setCurrentSongImg] = useState(null);
     const [currentState, setCurrentState] = useState(null);
-    const [nextSongTime, setNextSongTime] = useState(null);
+    const [nextSongTime, setNextSongTime] = useState(Date.now());
 
 
     function getCurrentSong() {
@@ -55,6 +55,7 @@ export default function MediaControlCard() {
             method: 'GET',
         }).then(res => res.json())
         .then(response =>{
+            console.log(reponse);
             setCurrentState(Boolean(response.is_playing));
             setCurrentArtist(response.item.artists[0].name);
             setCurrentSong(response.item.name);

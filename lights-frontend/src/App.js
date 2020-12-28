@@ -15,9 +15,9 @@ function App() {
           <Typography className='title'>Light Tool</Typography>
         </Toolbar>
       </AppBar>
+      <Spotify></Spotify>
       <Basics></Basics>
       <Patterns></Patterns>
-      <Spotify></Spotify>
     </div>
   );
 }

@@ -44,6 +44,7 @@ export default function MediaControlCard() {
 
     const [currentSong, setCurrentSong] = useState(null);
     const [currentSongImg, setCurrentSongImg] = useState(null);
+    const [currentState, setCurrentState] = useState(null);
 
     function next(e) {
         e.preventDefault();
@@ -81,6 +82,9 @@ export default function MediaControlCard() {
         }).then(res => res.json())
         .then(response =>{
             console.log(response);
+            console.log(response.is_playing);
+            console.log(response.item.name);
+            console.log(response.item.album.images[0]);
         })
     })
 

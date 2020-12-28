@@ -47,7 +47,6 @@ export default function MediaControlCard() {
     const [currentArtist, setCurrentArtist] = useState(null);
     const [currentSongImg, setCurrentSongImg] = useState(null);
     const [currentState, setCurrentState] = useState(null);
-    const [nextSongTime, setNextSongTime] = useState(Date.now());
 
 
     function getCurrentSong() {
@@ -55,7 +54,6 @@ export default function MediaControlCard() {
             method: 'GET',
         }).then(res => res.json())
         .then(response =>{
-            console.log(response);
             setCurrentState(Boolean(response.is_playing));
             setCurrentArtist(response.item.artists[0].name);
             setCurrentSong(response.item.name);
@@ -67,27 +65,21 @@ export default function MediaControlCard() {
         e.preventDefault();
         fetch(BASE_URL + '/spotify/next_song', {
             method: 'GET',
-        }).then(() => {
-            getCurrentSong();
-        })
+        });
     }
 
     function previous(e) {
         e.preventDefault();
         fetch(BASE_URL + '/spotify/previous_song', {
             method: 'GET',
-        }).then(() => {
-            getCurrentSong();
-        })
+        });
     }
 
     function play(e) {
         e.preventDefault();
         fetch(BASE_URL + '/spotify/pause_play', {
             method: 'GET',
-        }).then(() => {
-            getCurrentSong();
-        })
+        });
     }
 
     useEffect(() => {

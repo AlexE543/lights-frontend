@@ -44,6 +44,7 @@ export default function MediaControlCard() {
     const BASE_URL = "http://127.0.0.1:5000"
 
     const [currentSong, setCurrentSong] = useState(null);
+    const [currentArtist, setCurrentArtist] = useState(null);
     const [currentSongImg, setCurrentSongImg] = useState(null);
     const [currentState, setCurrentState] = useState(null);
 
@@ -56,7 +57,7 @@ export default function MediaControlCard() {
             method: 'GET',
         }).then(res => res.json())
         .then(response =>{
-            setCurrentState(response.is_playing);
+            setCurrentState(Boolean(response.is_playing));
             setCurrentSong(response.item.name);
             setCurrentSongImg(response.item.album.images[0].url);
         })
@@ -71,7 +72,7 @@ export default function MediaControlCard() {
             method: 'GET',
         }).then(res => res.json())
         .then(response =>{
-            setCurrentState(response.is_playing);
+            setCurrentState(Boolean(response.is_playing));
             setCurrentSong(response.item.name);
             setCurrentSongImg(response.item.album.images[0].url);
         })
@@ -79,7 +80,6 @@ export default function MediaControlCard() {
 
     function play(e) {
         e.preventDefault();
-        setCurrentState(!currentState);
         fetch(BASE_URL + '/spotify/pause_play', {
             method: 'GET',
         })
@@ -87,7 +87,7 @@ export default function MediaControlCard() {
             method: 'GET',
         }).then(res => res.json())
         .then(response =>{
-            setCurrentState(response.is_playing);
+            setCurrentState(Boolean(response.is_playing));
             setCurrentSong(response.item.name);
             setCurrentSongImg(response.item.album.images[0].url);
         })
@@ -98,7 +98,8 @@ export default function MediaControlCard() {
             method: 'GET'
         }).then(res => res.json())
         .then(response =>{
-            setCurrentState(response.is_playing);
+            console.log(response);
+            setCurrentState(Boolean(response.is_playing));
             setCurrentSong(response.item.name);
             setCurrentSongImg(response.item.album.images[0].url);
         })
@@ -113,10 +114,10 @@ export default function MediaControlCard() {
                         <div className={classes.details}>
                             <CardContent className={classes.content}>
                             <Typography component="h5" variant="h5">
-                                Live From Space
+                                {currentSong}
                             </Typography>
                             <Typography variant="subtitle1" color="textSecondary">
-                                Mac Miller
+                                {currentArtist}
                             </Typography>
                             </CardContent>
                             <div className={classes.controls}>

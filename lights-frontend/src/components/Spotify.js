@@ -79,6 +79,7 @@ export default function MediaControlCard() {
 
     function play(e) {
         e.preventDefault();
+        setCurrentState = !currentState;
         fetch(BASE_URL + '/spotify/pause_play', {
             method: 'GET',
         })
@@ -123,7 +124,7 @@ export default function MediaControlCard() {
                                 <SkipPreviousIcon />
                             </IconButton>
                             <IconButton onClick={play} aria-label="play/pause">
-                                {currentState === true ? <PauseIcon /> : <PlayArrowIcon className={classes.playIcon} />}
+                                {currentState === true ? <PlayArrowIcon className={classes.playIcon} /> : <PauseIcon className={classes.playIcon}/>}
                             </IconButton>
                             <IconButton onClick={next} aria-label="next">
                                 <SkipNextIcon />

@@ -79,7 +79,7 @@ export default function MediaControlCard() {
 
     function play(e) {
         e.preventDefault();
-        setCurrentState = !currentState;
+        setCurrentState(!currentState);
         fetch(BASE_URL + '/spotify/pause_play', {
             method: 'GET',
         })
@@ -133,8 +133,8 @@ export default function MediaControlCard() {
                         </div>
                         <CardMedia
                             className={classes.cover}
-                            image="https://picsum.photos/200"
-                            title="Live from space album cover"
+                            image={currentSongImg}
+                            title="Album Cover"
                         />
                     </Card>
                 </Grid>

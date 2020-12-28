@@ -30,6 +30,10 @@
   margin: auto;
 }
 
+.cover {
+  width: "10%",
+}
+
 .kSxvBW .muicc-colorpicker-button {
   width: 4vw;
   height: 4vw;

@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { Typography } from '@material-ui/core';
 import Basics from './components/Basics.js';
 import Patterns from './components/Patterns.js';
+import Spotify from './components/Spotify.js';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       </AppBar>
       <Basics></Basics>
       <Patterns></Patterns>
+      <Spotify></Spotify>
     </div>
   );
 }

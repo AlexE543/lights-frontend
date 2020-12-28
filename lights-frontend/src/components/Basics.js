@@ -10,10 +10,7 @@ export default function Basics(props) {
 
     const BASE_URL = "http://127.0.0.1:5000"
 
-    const [pixel, setPixel] = useState(0);
     const [colorOne, setColorOne] = useState(null);
-    const [colorTwo, setColorTwo] = useState([0, 0, 0]);
-    const [colorThree, setColorThree] = useState([0, 0, 0]);
     const [startIndex, setStartIndex] = useState(0);
     const [endIndex, setEndIndex] = useState(0);
 
@@ -21,10 +18,6 @@ export default function Basics(props) {
         setColorOne(color);
     };
 
-    function handlePixelIndexChange(e) {
-        e.preventDefault()
-        setPixel(e.target.value);
-    }
 
     function handleStartIndexChange(e) {
         e.preventDefault()

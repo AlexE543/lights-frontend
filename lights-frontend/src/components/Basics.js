@@ -119,7 +119,7 @@ export default function Basics(props) {
                 </Grid>
                 <Grid item xs={4}>
                     <Container>
-                        <Button className="patternButton" onClick={fill} variant="contained" color="primary" >Fil All</Button>
+                        <Button className="patternButton" onClick={fill} variant="contained" color="primary" >Fill All</Button>
                     </Container>
                 </Grid>
             </Grid>

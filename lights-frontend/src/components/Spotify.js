@@ -92,10 +92,8 @@ export default function MediaControlCard() {
 
     useEffect(() => {
         let myInterval = setInterval(() => {
-            if (Date.now() > {nextSongTime}) {
-                getCurrentSong();
-                clearInterval(myInterval);
-            }
+            getCurrentSong();
+            clearInterval(myInterval);
         }, 1000)
         return ()=> {
             clearInterval(myInterval);

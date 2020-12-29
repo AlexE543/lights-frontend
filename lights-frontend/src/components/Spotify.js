@@ -89,7 +89,7 @@ export default function MediaControlCard() {
         e.preventDefault();
         fetch(BASE_URL + '/spotify/pulse_to_beat', {
             method: 'POST',
-            body: JSON.stringify({'id': currentTrackId}),
+            body: JSON.stringify({'id': currentTrackId, 'color': (255, 255, 0)}),
         })
     }
 

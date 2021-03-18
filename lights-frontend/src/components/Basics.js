@@ -67,7 +67,7 @@ export default function Basics(props) {
 
     function fillRange(e) {
         e.preventDefault()
-        if (colorOne == null) {
+        if (colorTwo == null) {
             alert("You must enter a color");
         }
         else {
@@ -80,7 +80,7 @@ export default function Basics(props) {
 
     function fill(e) {
         e.preventDefault()
-        if (colorOne == null) {
+        if (colorThree == null) {
             alert("You must enter a color");
         }
         else {

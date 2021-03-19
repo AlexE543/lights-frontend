@@ -8,7 +8,7 @@ import { ColorPicker } from 'material-ui-color';
 
 export default function Basics(props) {
 
-    const BASE_URL = "http://127.0.0.1:5000"
+    const BASE_URL = "http://10.31.222.26:5000"
 
     const [colorOne, setColorOne] = useState(null);
     const [colorTwo, setColorTwo] = useState(null);

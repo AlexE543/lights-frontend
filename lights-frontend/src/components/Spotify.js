@@ -48,6 +48,7 @@ export default function MediaControlCard() {
     const [currentSongImg, setCurrentSongImg] = useState(null);
     const [currentState, setCurrentState] = useState(null);
     const [currentTrackId, setCurrentTrackId] = useState(null);
+    const [pulse, setPulse] = useState(null);
 
 
     function getCurrentSong() {
@@ -87,9 +88,11 @@ export default function MediaControlCard() {
 
     function pulseToBeat(e) {
         e.preventDefault();
+        console.log("Pulse to beat");
+        setPulse(!pulse);
         fetch(BASE_URL + '/spotify/pulse_to_beat', {
             method: 'POST',
-            body: JSON.stringify({'id': currentTrackId, 'color': [255, 255, 0]}),
+            body: JSON.stringify({'id': currentTrackId, 'color': [255, 255, 0], 'pulse': pulse}),
         })
     }
 
